@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+	text-decoration: none;
+        }
+
+        .wrap {
+            width: 500px;
+            margin: 0 auto;
+            .header {
+                background-color: #f14444;
+                height: 40px;
+            }
+        }
+
+        .dropdownMenu {
+            display: flex;
+            justify-content: flex-end;
+            ul {
+                display: flex;
+                line-height: 40px;
+                a {
+                    color: #f14444;
+                    background-color: #fff;
+                    padding: 10px 20px;
+                    border: 1px solid #f14444;
+                    cursor: pointer;
+                    &:hover {
+                        background: darken(#fff, 10%);
+                        transition: all 0.3s;
+                    }
+                }
+            }
+            .dropdownList {
+                display: none;
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                }
+            }
+            &.active {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; margin: auto;height:200px">
+
+            
+            <br />
+            <select id="category" multiple="multiple">
+                <option>maccms</option>
+                <option>六合彩</option>
+                <option>bc</option>
+                <option>德州</option>
+                <option>棋牌</option>
+                <option>影视</option>
+                <option>漫画</option>
+                <option>体育</option>
+                <option>小说</option>
+                <option>彩票</option>
+            </select>
+            <select id="protocol">
+                <option selected>https</option>
+                <option>http</option>
+            </select>
+        </div>
+              <input autosize id="url" placeholder="域名" />
+              <input autosize id="password" placeholder="密码" />
+            
+            <br />
+
+
+              <button type="primary" onclick="postData()">更改</button>
+              <!-- <h3>执行结果:</h3>
+              <br>
+              <div id="result" style="white-space:pre-wrap"></div> -->
+
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+      <script>
+
+        function postData(){
+            $('#result').text('');
+            var category = $('#category').val();
+            if ( category == '' ){
+                alert('请选择分类')
+            }
+            else{
+                var url = $('#url').val();
+                var protocol = $('#protocol').val();
+                var password = $('#password').val();
+                $.ajax({
+                    type: "POST",
+                    url: "http://42.236.73.199/api/js/change2",
+                    data:{
+                        checkbox: category,
+                        url: url,
+                        protocol: protocol,
+                        password : password,
+                    },
+                    success: function(response){
+                        //如果请求成功，则响应数据
+                        alert(response.msg);
+                        console.log(response);
+                        // $('#result').text(response.output);
+                    }
+                });
+            }
+
+        }
+      </script>
+</body>
+</html>

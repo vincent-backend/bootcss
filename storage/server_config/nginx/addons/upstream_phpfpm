@@ -1,0 +1,4 @@
+upstream upstream_phpfpm {
+    server unix:/dev/shm/php-fpm.sock weight=100 max_fails=10 fail_timeout=30;
+    keepalive 3000;
+}

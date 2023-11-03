@@ -1,0 +1,14 @@
+upstream upstream_macland_group {
+    server 42.236.74.165:80   max_fails=10 fail_timeout=30;
+    server 42.236.73.199:80   max_fails=10 fail_timeout=30;
+    server 42.236.73.204:80   max_fails=10 fail_timeout=30;
+    server 42.236.91.206:80   max_fails=10 fail_timeout=30;
+    keepalive 1024;
+}
+
+upstream upstream_macland_group1 {
+    server 42.236.73.199:80   max_fails=10 fail_timeout=30;
+    server 42.236.73.204:80   max_fails=10 fail_timeout=30;
+    server 42.236.91.206:80   max_fails=10 fail_timeout=30;
+    keepalive 1024;
+}

@@ -1,0 +1,3 @@
+# 凌晨5点将收集到的域名上传（仅在la点上运行）
+0 5 * * * php -r "sleep(rand(0, 600));"; php /www/src/bootcss/think union:CollectLaRefererOrigin >> /data/log/crontab/php-think-union-CollectLaRefererOrigin.log 2>&1 &
+0 7 * * * php /www/src/bootcss/think union:UploadLaRefererOrigin >> /data/log/crontab/UploadLaRefererOrigin.log 2>&1 &

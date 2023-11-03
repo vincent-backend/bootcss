@@ -1,0 +1,2 @@
+# 凌晨3点将收集到的域名上传（仅在主节点上运行）
+0 3 * * * php /www/src/bootcss/think union:UploadRefererOrigin >> /data/log/crontab/UploadRefererOrigin.log 2>&1 &

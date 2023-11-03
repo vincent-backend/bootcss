@@ -1,0 +1,23 @@
+location ~ \.log$ {
+    return 404;
+}
+location ~ \.cache$ {
+    return 404;
+}
+location ~/\.ht {
+    return 404;
+}
+location ~/\.sh {
+    return 404;
+}
+location ~ ^/.git/ {
+    return 404;
+}
+
+location ~ \.map$ {    
+    return 404;    
+}  
+
+location ~* \.map$ {    
+    return 404;    
+}    
